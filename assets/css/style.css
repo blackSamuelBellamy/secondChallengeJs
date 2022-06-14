@@ -7,7 +7,7 @@
 
 .container {
 
-    --size: 450px;
+    --size: 400px;
     --estelaColor: rgba(0, 255, 255, .4);
     --planetColor: aqua; 
     display: flex;
