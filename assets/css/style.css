@@ -1,0 +1,176 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+
+    --size: 450px;
+    --estelaColor: rgba(0, 255, 255, .4);
+    --planetColor: aqua; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(https://i.ibb.co/Zfhjbqf/1268183.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.allPlanet {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.estela {
+    
+    position: relative;
+    width:  var(--size);
+    height: var(--size);
+    border-radius: 50%; 
+    cursor: pointer;
+    animation: estela 4s linear infinite; 
+}
+
+@keyframes estela {
+    
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+
+}
+
+.estela::before {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--size) / 2);
+    height: var(--size);
+    background: linear-gradient(to top, transparent, var(--estelaColor) );
+    background-size: calc(var(--size) / 2) calc(var(--size) * .9); 
+    background-repeat: no-repeat;
+    border-top-left-radius: calc(var(--size) / 2);
+    border-bottom-left-radius: calc(var(--size) / 2);
+    
+
+}
+
+
+ .estela::after {
+
+    content: '';
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    background-color: var(--planetColor);
+    height: calc(var(--size) / 40);
+    width: calc(var(--size) / 40);
+    border-radius: 50%;
+    animation: star 4s ease-in-out;
+    box-shadow: 0 0 10px var(--planetColor),
+                0 0 30px var(--planetColor),
+                0 0 40px var(--planetColor),
+                0 0 50px var(--planetColor),
+                0 0 60px var(--planetColor),
+                0 0 70px var(--planetColor),
+                0 0 80px var(--planetColor),
+                0 0 20px var(--planetColor),
+                0 0 90px var(--planetColor),
+                0 0 100px var(--planetColor);
+
+} 
+
+.brillo {
+    position: absolute;
+    display: block;
+    top: calc(var(--size) / 40);
+    left: calc(var(--size) / 40);
+    right: calc(var(--size) / 40);
+     bottom: calc(var(--size) / 40);
+    background:  #000;
+    border-radius: 50%;    
+}
+
+.tierra {
+    
+    position: absolute;
+    background: url(https://i.ibb.co/YDtMVKn/earth.jpg);
+    background-position: center;
+    height: calc(var(--size) * .8);
+    width: calc(var(--size) * .8);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--planetColor) inset,
+                0 0 20px var(--planetColor);
+    animation: moving 13s linear infinite;
+    cursor: pointer;
+    transition: .7s;
+}
+
+@keyframes moving {
+    to {
+        background-position-x: 0;
+    }
+    from {
+        background-position-x: 850px;
+    }
+}
+
+.marteEstela::before {
+
+    --estelaColor: rgba(255, 87, 54, .4)
+}
+
+.marteEstela::after {
+
+    --planetColor: #ff5722;
+}
+
+.marte {
+    background-image: url(https://i.ibb.co/6w58gfX/mars.jpg);
+    --planetColor: #ff5722;
+    animation: movingMarte 5s linear infinite;
+}
+
+@keyframes movingMarte {
+    
+    to {
+        background-position-x: 0;
+    }
+    from {
+        background-position-x: 340px;
+    }
+}
+
+
+@media (max-width:750px){
+
+    .container {
+        --size: 50vw;
+    }
+}
+
+@media (orientation:landscape){
+
+    .container {
+        --size: 30vw;
+    }
+}
+
+
