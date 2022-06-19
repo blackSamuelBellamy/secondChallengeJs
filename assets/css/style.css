@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
-    overflow: hidden;
-}
+
 
 .container {
 
@@ -25,6 +23,9 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-color: #000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     
 }
 
